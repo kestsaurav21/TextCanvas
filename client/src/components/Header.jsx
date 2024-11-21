@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
   return (
-    <div className='flex flex-col justify-center items-center text-center my-20'>
+    <div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center text-center my-20'>
         
         <div className='flex-col sm:inline-flex items-center justify-center rounded-full py-2 px-7 sm:px-10 sm:py-3  bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent hover:scale-105 transition-all duration-700 '>
           <p className='font-semibold text-lg sm:text-xl pr-2 '>Turn Your Ideas into Stunning Images</p>
