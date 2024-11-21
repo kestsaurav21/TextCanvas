@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const NavBar = () => {
+
+  const { user } = useContext(AppContext)
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(true);
+
   return (
-    <div className="py-6 flex justify-between ">
+    <div className="py-6 px-4 sm:px-10 md:px-14 lg:px-28 flex justify-between">
       <div
         onClick={() => navigate("/")}
         className="w-24 sm:w-32 lg:w-40 flex items-center gap-2 cursor-pointer">
