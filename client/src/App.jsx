@@ -3,18 +3,20 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import BuyCredit from './pages/BuyCredit'
 import Result from './pages/Result'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <>
-    <Router>
+    <div className='min-h-full bg-gradient-to-b from-[#EBD3F8] to-[#A367B1]'>
+      <NavBar  />
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/buy' element={<BuyCredit />} />
             <Route path='/buy' element={<Result />} />
         </Routes>
-    </Router>
-    </>
+      <Footer />
+    </div>
   )
 }
 
