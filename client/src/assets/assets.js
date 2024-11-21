@@ -1,4 +1,5 @@
 import star_icon from './star_icon.svg'
+import logo_icon from './logo_icon.svg'
 import rating_star from './rating_star.svg'
 import profile_img_1 from './profile_img_1.png'
 import profile_img_2 from './profile_img_2.png'
@@ -10,6 +11,7 @@ import cross_icon from './cross_icon.svg'
 import star_group from './star_group.png'
 import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
+import sample from './sample.png'
 export const assets = {
     logo_icon,
     star_icon,
@@ -19,6 +21,7 @@ export const assets = {
     star_group,
     credit_star,
     profile_icon,
+    sample
 }
 
 export const stepsData = [
@@ -45,22 +48,15 @@ export const testimonialsData = [
         name:'Donald Jackman',
         role:'Graphic Designer',
         stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+        text:`I've been using TextCanvas for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
     },
     {
         image:profile_img_2,
         name:'Richard Nelson',
         role:'Content Creator',
         stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
-    },
-    {
-        image:profile_img_1,
-        name:'Donald Jackman',
-        role:' Graphic Designer',
-        stars:5,
-        text:`I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
-    },
+        text:`I've been using TextCanvas  for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`
+    }
 ]
 
 export const plans = [
