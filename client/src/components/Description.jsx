@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Description = () => {
   return (
-    <div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center my-23 p-6 md:my-28 '>
+    <div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center my-15 p-6 md:my-18 '>
         <h1 className='text-2xl sm:text-4xl text-white font-semibold mb-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent'>Create AI Images</h1>
         <p className='text-gray-900 mb-8 italic'>Turn Your Imagination into Stunning Visuals!</p>
 
