@@ -3,7 +3,7 @@ import { stepsData } from '../assets/assets'
 
 const Steps = () => {
   return (
-    <div className='flex flex-col justify-center items-center my-32'>
+    <div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center my-32'>
         <h1 className='text-3xl sm:text-4xl font-semibold mb-2'>How it works</h1>
         <p className='italic text-lg mb-8'>"Transform Words into Masterpieces!"</p>
         
