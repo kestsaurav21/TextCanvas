@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets, plans } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 
 
 const BuyCredit = () => {
 
-
+  const { user } = useContext(AppContext);
   return (
-    <div className='min-h-[77vh] text-center pt-14 mb-10'>
+    <div className='text-center pt-14 mb-10 '>
 
       <button className='bg-[#2E073F] text-white border-2 border-white shadow-xl px-10 py-3 rounded-full mb-6'>Our Plans</button>
 
@@ -26,7 +27,8 @@ const BuyCredit = () => {
             </p>
 
             <button onClick={() => paymentRazorpay(item.id)}
-             className='bg-black text-white mt-8 px-16 py-4 rounded-full hover:scale-105 transition-all duration-500'>Purchase</button>
+             className='bg-black text-white mt-8 px-16 py-4 rounded-full hover:scale-105 transition-all duration-500'>
+              {user ? 'Purchase' : 'Get Started' }</button>
 
           </div>
         ))}
