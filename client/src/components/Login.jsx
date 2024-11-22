@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { assets } from '../assets/assets';
 import { FaRegUser } from "react-icons/fa";
+import { AppContext } from '../context/AppContext';
 
 
 const Login = () => {
 
     const [ register, setRegister ] = useState('SignUp')
+
+    const { setShowLogin } = useContext(AppContext)
 
   return (
     <div className='absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center'>
@@ -59,7 +62,7 @@ const Login = () => {
             </span>
             </p>
 
-            <img  
+            <img  onClick={() => setShowLogin(false)}
              className='absolute top-0 right-0 p-5 cursor-pointer'
             src={assets.cross_icon} />
         </form>
