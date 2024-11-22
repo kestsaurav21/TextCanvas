@@ -21,7 +21,7 @@ export const assets = {
     star_group,
     credit_star,
     profile_icon,
-    sample
+    sample,
 }
 
 export const stepsData = [
