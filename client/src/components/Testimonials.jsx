@@ -11,9 +11,13 @@ const Testimonials = () => {
     viewport={{once: true}}
     >
 
-        <h1 className='mb-2 sm:mb-20 text-center text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold bg-gradient-to-r from-gray-900 to-gray-400 bg-clip-text text-transparent'>
+        <motion.h1 className='mb-2 sm:mb-20 text-center text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold bg-gradient-to-r from-gray-900 to-gray-400 bg-clip-text text-transparent'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay:0.4, duration:3}}
+        >
         Customer Testimonials
-        </h1>
+        </motion.h1>
         <p className='text-gray-900 mb-8 italic'>What Our Users Are Saying</p>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto px-4 py-8'>
