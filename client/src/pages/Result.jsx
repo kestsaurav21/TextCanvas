@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
+import { motion } from "framer-motion"
 
 const Result = () => {
 
@@ -7,7 +8,7 @@ const Result = () => {
 
   const [ isImageLoaded, setIsImageLoaded ] = useState(true)
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [input, setInput] = useState('')
 
@@ -20,8 +21,12 @@ const Result = () => {
   return (
 
   <div className='min-h-screen'>
-  <form onSubmit={submitHandler}
-  className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center m-20'>
+  <motion.form onSubmit={submitHandler}
+  className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center m-20'
+  initial={{opacity: 0.2, y:100}}
+  transition={{duration:1}}
+  whileInView={{opacity:1, y:0}}
+  viewport={{once: true}}>
     <div className='flex-col items-start' >
     <div className='relative m-2  flex flex-col justify-center items-center'>
       <img className='w-80 max-w-sm rounded'  src={image} />
@@ -51,7 +56,7 @@ const Result = () => {
     }
 
    
-    </form>
+    </motion.form>
 
     </div>
   )
