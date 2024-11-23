@@ -1,9 +1,15 @@
 import React from 'react'
 import { testimonialsData } from '../assets/assets'
+import { motion } from "framer-motion"
 
 const Testimonials = () => {
   return (
-    <div className='pb-12 md:py-20 mx-2 flex flex-col items-center justify-center'>
+    <motion.div className='pb-12 md:py-20 mx-2 flex flex-col items-center justify-center'
+    initial={{opacity: 0.2, y:100}}
+    transition={{duration:1}}
+    whileInView={{opacity:1, y:0}}
+    viewport={{once: true}}
+    >
 
         <h1 className='mb-2 sm:mb-20 text-center text-2xl md:text-3xl lg:text-4xl mt-4 font-semibold bg-gradient-to-r from-gray-900 to-gray-400 bg-clip-text text-transparent'>
         Customer Testimonials
@@ -24,8 +30,7 @@ const Testimonials = () => {
                     
                     <p className='text-md text-gray-500'>{item.text}</p>
 
-                   
-
+                
                 </div>
             ))}
         </div>
@@ -33,7 +38,7 @@ const Testimonials = () => {
 
         
 
-    </div>
+    </motion.div>
   )
 }
 

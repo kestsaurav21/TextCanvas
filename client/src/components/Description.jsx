@@ -1,13 +1,27 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { delay, motion } from "framer-motion"
 
 const Description = () => {
   return (
-    <div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center my-15 p-6 md:my-18 '>
-        <h1 className='text-2xl sm:text-4xl text-white font-semibold mb-2 bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent'>Create AI Images</h1>
-        <p className='text-gray-900 mb-8 italic'>Turn Your Imagination into Stunning Visuals!</p>
+    <motion.div className='px-4 sm:px-10 md:px-14 lg:px-28 flex flex-col justify-center items-center my-15 p-6 md:my-32 '
+    initial={{opacity: 0.2, y:100}}
+    transition={{duration:1}}
+    whileInView={{opacity:1, y:0}}
+    viewport={{once: true}}
+    >
+        <motion.h1 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay:0.4, duration:3}}
+        className='text-2xl sm:text-4xl text-black font-semibold mb-2 '>Create AI Images</motion.h1>
+        <motion.p className='text-gray-900 mb-8 italic mt-3'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay:0.4, duration:3}}
+        >Turn Your Imagination into Stunning Visuals!</motion.p>
 
-        <div className='flex flex-col gap-5 md:gap-14 md:flex-row  items-center'>
+        <motion.div className='flex flex-col gap-5 md:gap-14 md:flex-row  items-center mt-8'>
             <img className='w-80 xl:w-96 rounded-lg' src={assets.sample} />
 
             <div className='flex-col justify-center items-center '>
@@ -17,9 +31,9 @@ const Description = () => {
                 </p>
             </div>
             
-        </div>
+        </motion.div>
 
-    </div>
+    </motion.div>
   )
 }
 
