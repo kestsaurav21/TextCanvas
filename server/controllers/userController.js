@@ -44,6 +44,12 @@ export const registerUser = async (req, res) => {
       return res.json({ success: false, message: "Missing deatils" });
     }
 
+    const existingEmail = await userModel.findOne({email})
+    
+    if(existingEmail){
+        return res.json({success:false, message: 'User already register with this email'})
+    }
+
     // Encrypt the password before sending it to database
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
