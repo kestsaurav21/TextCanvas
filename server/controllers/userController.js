@@ -29,7 +29,7 @@ export const loginUser = async (req, res) => {
       res.json({ success: false, message: "Invalid credentials" });
     }
   } catch (error) {
-    console.log("ROUTE: /user/login - ", err);
+    console.log("ROUTE: /user/login - ", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -74,7 +74,26 @@ export const registerUser = async (req, res) => {
       user: { name: user.name },
     });
   } catch (error) {
-    console.log("ROUTE: /user/register - ", err);
+    console.log("ROUTE: /user/register - ", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
+export const userCredits = async (req, res) => {
+
+    try {
+        const { userId } = req.body;        
+
+        const user = await userModel.findById(userId);
+
+        res.json({ success: true, 
+            credits: user.creditBalance,
+            user: {user: user.name}
+         });
+
+
+    } catch (error) {
+        console.log("ROUTE: /user/credits - ", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
