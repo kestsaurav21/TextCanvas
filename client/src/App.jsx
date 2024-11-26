@@ -7,20 +7,25 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Login from './components/Login'
 import { AppContext } from './context/AppContext'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
 
   const { showLogin } = useContext(AppContext)
   return (
     <div className='min-h-full bg-gradient-to-b from-violet-50 to-fuchsia-300'>
-      <NavBar  />
-      { showLogin && <Login /> }
-      
-        <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/buy' element={<BuyCredit />} />
-            <Route path='/result' element={<Result />} />
-        </Routes>
-      <Footer />
+
+      <ToastContainer position='bottom-right' />
+        <NavBar  />
+        { showLogin && <Login /> }
+        
+          <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/buy' element={<BuyCredit />} />
+              <Route path='/result' element={<Result />} />
+          </Routes>
+        <Footer />
     </div>
   )
 }
