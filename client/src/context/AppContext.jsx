@@ -20,7 +20,6 @@ const AppProvider = ({ children }) => {
       const { data } = await axios.get(backendUrl + "/api/user/credits", {
         headers: { token },
       });
-
       if (data.success) {
         setCredit(data.credits);
         setUser(data.user);
