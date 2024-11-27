@@ -116,11 +116,9 @@ const Login = () => {
 
             <button className='w-full bg-indigo-600 text-white mt-5 py-2 rounded-full text-sm font-medium cursor-pointer'>{register}</button>
 
-
-
             <p className='mt-5 text-sm'>{ register === 'Login' ?  'Dont have account?': 'Already have an account?' }
             <span onClick={() => register === 'Login' ? setRegister('SignUp') : setRegister('Login')} className="text-indigo-600 hover:underline cursor-pointer">
-            {register} here
+            Click here
             </span>
             </p>
 
