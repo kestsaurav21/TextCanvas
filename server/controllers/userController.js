@@ -102,15 +102,14 @@ export const userCredits = async (req, res) => {
     }
 }
 
-
-export const razorpayInstance = new razorpay({
+const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
     key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 export const paymentRazorpay = async (req, res) => {
   try {
-    const { userId, planId } = req.body;
+    const { userId, planId } = req.body;    
 
     const user = await userModel.findById(userId);
 
@@ -169,11 +168,45 @@ export const paymentRazorpay = async (req, res) => {
         return res.json({success:true, order})
     });
     
-
-    
     
   } catch (error) {
     console.log("ROUTE: /user/payment - ", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
+// API controller function to verify the razorpay payment
+
+export const verifyRazorpay = async (req, res) => {
+  try {
+
+      const { razorpay_order_id } = req.body
+
+      const orderInfo =  await razorpayInstance.orders.fetch(razorpay_order_id)
+      
+      if(orderInfo.status === 'paid'){
+          const transactionData = await transactionModel.findById(orderInfo.receipt)
+
+          if(transactionData.payment){
+              return res.json({success:false, message: 'Payment Failed'})
+          }
+
+          //Adding Credits in user data
+
+          const userData = await userModel.findOne({userId: transactionData.userId})
+          const creditBalance = userData.creditBalance + transactionData.credits
+          await userModel.findByIdAndUpdate(userData._id, {creditBalance})
+
+          // Making the payment true
+          await transactionModel.findByIdAndUpdate(transactionData._id, {payments: true})
+
+          return res.json({success:true, message: 'Payment Successful'})
+
+      }
+      
+  } catch (error) {
+      console.log(error.message);
+      res.json({success:false, message:error.message}) 
+  }
+
+}
